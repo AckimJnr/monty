@@ -1,6 +1,12 @@
 #ifndef INCLUDES_H
 #define INCLUDES_H
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+char *opcode;
+char *op_int_str;
+#define BUFFER_SIZE 1024
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -31,7 +37,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
+void _readline(FILE *file);
 
 
 #endif
