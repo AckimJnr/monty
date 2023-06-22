@@ -9,9 +9,10 @@ void _readline(FILE *file)
 {
 	char buffer[BUFFER_SIZE];
 	int op_int;
-
+	int line_number = 0;
 	while (fgets(buffer, BUFFER_SIZE, file))
 	{
+		line_number++;
 		buffer[strcspn(buffer, "\n")] = '\0';
 		opcode = strtok(buffer, " ");
 		op_int_str = strtok(NULL, " ");
@@ -21,7 +22,7 @@ void _readline(FILE *file)
 			if (op_int_str != NULL)
 			{
 				op_int = atoi(op_int_str);
-				printf("opcode : %s\n opint: %d\n", opcode, op_int);
+				for (i = 0; instructions)
 			}
 			else
 			{
