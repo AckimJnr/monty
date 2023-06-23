@@ -1,14 +1,16 @@
 #include "monty.h"
+#include <stdio.h>
 /**
  * main - starting point of the monty program
- * argc: Number of arguments passe to our program
- * argv: array of the arguments passed
+ * @argc: Number of arguments passe to our program
+ * @argv: array of the arguments passed
  *
  * Return: Return 0 on successful execution, otherwise -1
  */
 int main(int argc, char **argv)
 {
 	FILE *file;
+	stack_t *stack = NULL;
 
 	(void) argv;
 	if (argc != 2)
@@ -25,7 +27,7 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	_readline(file);
+	_readline(file, &stack);
 	fclose(file);
 	return (0);
 }
