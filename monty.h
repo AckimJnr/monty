@@ -1,12 +1,11 @@
 #ifndef INCLUDES_H
 #define INCLUDES_H
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 /* extern char *opcode; */
 /* extern char *op_int_str;*/
 #define BUFFER_SIZE 1024
-
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer

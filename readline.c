@@ -1,5 +1,6 @@
 #include "monty.h"
 #include<stdio.h>
+#include <stdlib.h>
 /**
  * _readline - reads a line from the file
  * @file: file to be processed
@@ -39,7 +40,5 @@ void _readline(FILE *file, stack_t **stack)
 			fclose(file);
 			exit(EXIT_FAILURE);
 		}
-
 	}
-
 }

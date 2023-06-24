@@ -1,5 +1,6 @@
 #include "monty.h"
 #include <stdio.h>
+#include <stdlib.h>
 /**
  * main - starting point of the monty program
  * @argc: Number of arguments passe to our program
