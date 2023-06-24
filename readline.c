@@ -22,7 +22,8 @@ void _readline(FILE *file, stack_t **stack)
 	{
 		line_number++;
 		opcode = strtok(line, " \n");
-
+		if (opcode == NULL)
+			continue;
 		for (i = 0; instructions[i].opcode != NULL; i++)
 		{
 			if (strcmp(opcode, instructions[i].opcode) == 0)
