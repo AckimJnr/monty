@@ -26,7 +26,7 @@ void _readline(FILE *file)
 			}
 			else
 			{
-				fprintf(stderr, "Number not provided");
+				fprintf(stderr, "L%u: usage: push interger", line_number);
 				exit(EXIT_FAILURE);
 			}
 		}
