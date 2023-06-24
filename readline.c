@@ -1,35 +1,44 @@
 #include "monty.h"
+#include<stdio.h>
 /**
  * _readline - reads a line from the file
  * @file: file to be processed
+ * @stack: stack of the program
  *
  * Return: void
  */
-void _readline(FILE *file)
+void _readline(FILE *file, stack_t **stack)
 {
-	char buffer[BUFFER_SIZE];
-	int op_int;
-	int line_number = 0;
-	while (fgets(buffer, BUFFER_SIZE, file))
+	char line[BUFFER_SIZE], *opcode;
+	int i;
+	unsigned int line_number = 0;
+	instruction_t instructions[] = {
+	{"push", push},
+	{"pall", pall},
+	{NULL, NULL}
+	};
+
+	while (fgets(line, sizeof(line), file) != NULL)
 	{
 		line_number++;
-		buffer[strcspn(buffer, "\n")] = '\0';
-		opcode = strtok(buffer, " ");
-		op_int_str = strtok(NULL, " ");
+		opcode = strtok(line, " \n");
 
-		if (opcode != NULL)
+		for (i = 0; instructions[i].opcode != NULL; i++)
 		{
-			if (op_int_str != NULL)
+			if (strcmp(opcode, instructions[i].opcode) == 0)
 			{
-				op_int = atoi(op_int_str);
-				for (i = 0; instructions)
-			}
-			else
-			{
-				fprintf(stderr, "L%u: usage: push interger", line_number);
-				exit(EXIT_FAILURE);
+				instructions[i].f(stack, line_number);
+				break;
 			}
 		}
+		if (instructions[i].opcode == NULL)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number,
+					opcode);
+			fclose(file);
+			exit(EXIT_FAILURE);
+		}
+
 	}
 
 }
