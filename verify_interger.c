@@ -10,6 +10,9 @@ int verify_int(char str[])
 {
 	size_t i;
 
+	if (str == NULL)
+		return (0);
+
 	for (i = 0; i < strlen(str); i++)
 	{
 		if (!isdigit(str[i]))
