@@ -1,6 +1,4 @@
 #include "monty.h"
-#include<stdio.h>
-#include <stdlib.h>
 /**
  * _readline - reads a line from the file
  * @file: file to be processed

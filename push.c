@@ -11,12 +11,14 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *new_node;
 	int op_int;
 	char *op_int_str = strtok(NULL, " \t\n");
+	int isvalid_num = verify_int(op_int_str);
 
-	if (op_int_str == NULL)
+	if (op_int_str == NULL || !isvalid_num)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+
 	op_int = atoi(op_int_str);
 
 	new_node = malloc(sizeof(stack_t));
