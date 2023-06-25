@@ -15,10 +15,11 @@ int verify_int(char str[])
 
 	for (i = 0; i < strlen(str); i++)
 	{
+		if (str[0] == '-')
+			continue;
+
 		if (!isdigit(str[i]))
-		{
 			return (0);
-		}
 	}
 	return (1);
 }
